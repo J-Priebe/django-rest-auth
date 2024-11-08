@@ -68,7 +68,7 @@ class SocialLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError(_("Define adapter_class in view"))
 
         adapter = adapter_class(request)
-        app = adapter.get_provider().get_app(request)
+        app = adapter.get_provider().app
 
         # More info on code vs access_token
         # http://stackoverflow.com/questions/8666316/facebook-oauth-2-0-code-and-token

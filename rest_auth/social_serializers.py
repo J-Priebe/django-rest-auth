@@ -51,7 +51,7 @@ class TwitterLoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Define adapter_class in view")
 
         adapter = adapter_class(request)
-        app = adapter.get_provider().get_app(request)
+        app = adapter.get_provider().app
 
         access_token = attrs.get('access_token')
         token_secret = attrs.get('token_secret')
