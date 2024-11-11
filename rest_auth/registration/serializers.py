@@ -116,7 +116,6 @@ class SocialLoginSerializer(serializers.Serializer):
 
         try:
             login = self.get_social_login(adapter, app, social_token, access_token)
-            request.session = {}
             complete_social_login(request, login)
         except HTTPError:
             raise serializers.ValidationError(_("Incorrect value"))
